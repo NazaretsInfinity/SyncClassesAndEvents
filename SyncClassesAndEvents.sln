@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35219.272
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyncClassesAndEvents", "SyncClassesAndEvents\SyncClassesAndEvents.csproj", "{289E0951-B5E5-49F3-9805-C3BC73FFE19E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mutex_HW4", "Mutex_HW4\Mutex_HW4.csproj", "{EB2AB95E-AC76-42E9-8806-3F46D9A5872F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{289E0951-B5E5-49F3-9805-C3BC73FFE19E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{289E0951-B5E5-49F3-9805-C3BC73FFE19E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{289E0951-B5E5-49F3-9805-C3BC73FFE19E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{289E0951-B5E5-49F3-9805-C3BC73FFE19E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB2AB95E-AC76-42E9-8806-3F46D9A5872F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB2AB95E-AC76-42E9-8806-3F46D9A5872F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB2AB95E-AC76-42E9-8806-3F46D9A5872F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB2AB95E-AC76-42E9-8806-3F46D9A5872F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {43D4E8EC-AA64-4ABB-B1B8-37A29C468888}
+	EndGlobalSection
+EndGlobal
