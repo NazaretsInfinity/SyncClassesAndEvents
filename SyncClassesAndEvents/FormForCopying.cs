@@ -14,7 +14,7 @@ namespace SyncClassesAndEvents
     public partial class FormForCopying : Form
     {
       
-        private static Semaphore smph = new Semaphore(2, 3); // not counting the main one. AND STATIC TO MAKE IT ONLY ONE FOR EACH FORM 
+        private static Semaphore smph = new Semaphore(2, 3); //counting the main one. AND STATIC TO MAKE IT ONLY ONE FOR EACH FORM 
         public FormForCopying()
         {
             InitializeComponent();
@@ -28,7 +28,7 @@ namespace SyncClassesAndEvents
         void CopyApp(object a)
         {
             Semaphore sem = a as Semaphore;
-            if (!sem.WaitOne(0))
+            if (!sem.WaitOne(0)) 
             {
                 MessageBox.Show("Too much copies.We're closing", "message", MessageBoxButtons.OKCancel);
                 Application.Exit();
