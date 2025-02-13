@@ -8,20 +8,25 @@ using System.Threading.Tasks;
 
 namespace Mutex_HW4
 {
-    internal class Program // task 4 
+    internal class Program 
     {
         public static Mutex mtx = new Mutex();
+     
 
         static void Main(string[] args)
         {
 
-            Thread[] threads = { new Thread(WriteNumbers), 
-                new Thread(WrirePrimeNumbers), 
+#if true4 // task4
+            Thread[] threads = { new Thread(WriteNumbers),
+                new Thread(WrirePrimeNumbers),
                 new Thread(WritePrimeNumbers_2) };
+
+
             foreach (var thread in threads)
-            thread.Start();// thread.Join(); 
-           
- 
+                thread.Start();  thread.Join();   
+#endif
+
+
         }
 
 
@@ -33,9 +38,9 @@ namespace Mutex_HW4
             StreamWriter wr = new StreamWriter("numbers.txt");
             for (int i = 0; i < 100; i++) wr.WriteLine(random.Next(1,500));
             wr.Close();
+           
             mtx.ReleaseMutex();
 
-            Console.WriteLine("First thread off");
         }
 
         static void WrirePrimeNumbers()
@@ -55,8 +60,8 @@ namespace Mutex_HW4
             StreamWriter wr = new StreamWriter("PrimeNumbers.txt");
             foreach(int numb in numbers) wr.WriteLine(numb);
             wr.Close();
+          
             mtx.ReleaseMutex();
-            Console.WriteLine("Second thread off");
 
         }
 
@@ -74,9 +79,9 @@ namespace Mutex_HW4
             StreamWriter wr = new StreamWriter("PrimeNumbersRestSeven.txt");
             foreach (int numb in numbers)if(numb%10 == 7)wr.WriteLine(numb);
             wr.Close();
+           
             mtx.ReleaseMutex();
 
-            Console.WriteLine("Third thread off");
         }
 
         public static bool IsPrime(int i)
