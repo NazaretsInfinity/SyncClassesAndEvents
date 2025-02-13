@@ -13,6 +13,7 @@ namespace Mutex_HW4
     {
         static Mutex mtx = new Mutex();
         private static int MainBet = 0;
+       
 
         static void Main(string[] args)
         {
@@ -26,16 +27,17 @@ namespace Mutex_HW4
             foreach (var thread in threads)
             {thread.Start();  thread.Join(); }
 #endif
-            Thread UpdateBet = new Thread(UpdateMainBet); UpdateBet.Start();
 
             int all_gambles = new Random().Next(20, 21);
             Console.WriteLine($"We have {all_gambles} players");
+            Thread UpdateBet = new Thread(UpdateMainBet); UpdateBet.Start(); 
             
-             Semaphore semaphore = new Semaphore(5, 5);
+
+            Semaphore semaphore = new Semaphore(5, 5);
              for (int i = 0; i < all_gambles; ++i)
-                ThreadPool.QueueUserWorkItem(GambleTable, semaphore); 
-  
-             
+                ThreadPool.QueueUserWorkItem(GambleTable, semaphore);
+
+
         }
         // MAINMETHOD END 
 
@@ -55,9 +57,12 @@ namespace Mutex_HW4
                 if (number == MainBet) Money += Bet;
                 else Money -= Bet;
                 Staying = rnd.Next(2) == 1;
+                Console.WriteLine($"Player put {Bet}$ for {number}. Current status: {Money}$");
+                if (!Staying)Console.WriteLine($"Player left");
+   
                 Thread.Sleep(3000); // just give time the main bet to change
             }
-            Console.WriteLine($"Player left with {Money}$ in his pocket");
+           
             s.Release();
         }
 
@@ -66,7 +71,8 @@ namespace Mutex_HW4
             while (true)
             {
                 MainBet = rnd.Next(1, 15);
-                Thread.Sleep(2000);
+                Console.WriteLine($"MAIN BET: {MainBet}");
+                Thread.Sleep(2500);
             }
         }
         #region  For mutex task
