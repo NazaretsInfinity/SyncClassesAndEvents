@@ -27,7 +27,7 @@ namespace Mutex_HW4
             foreach (var thread in threads)
             {thread.Start();  thread.Join(); }
 #endif
-
+            // casino (task 6). the third one is in another proj)
             int all_gambles = new Random().Next(20, 21);
             Console.WriteLine($"We have {all_gambles} players");
             Thread UpdateBet = new Thread(UpdateMainBet); UpdateBet.Start(); 
